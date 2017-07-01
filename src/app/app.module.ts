@@ -1,37 +1,47 @@
-import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms';
-import { HttpModule }    from '@angular/http';
+import {NgModule}                       from '@angular/core';
+import {BrowserModule}                  from '@angular/platform-browser';
+import {FormsModule}                    from '@angular/forms';
+import {HttpModule}                     from '@angular/http';
+import {MdIconModule, MdDialogModule, MdButtonModule}         from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import { AppRoutingModule } from './app-routing.module';
+import {AppRoutingModule}               from './app-routing.module';
 
 // Imports for loading & configuring the in-memory web api
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
+import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {InMemoryDataService}  from './in-memory-data.service';
 
-import { AppComponent }         from './app.component';
-import { DashboardComponent }   from './dashboard.component';
-import { HeroesComponent }      from './heroes.component';
-import { HeroDetailComponent }  from './hero-detail.component';
-import { HeroService }          from './hero.service';
-import { HeroSearchComponent }  from './hero-search.component';
+import {AppComponent}           from './app.component';
+import {DashboardComponent}     from './dashboard.component';
+import {HeroesComponent}        from './heroes.component';
+import {HeroDetailComponent}    from './hero-detail.component';
+import {HeroService}            from './hero.service';
+import {HeroSearchComponent}    from './hero-search.component';
+import {DialogInstruction}      from './dialog-instruction.component';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
-    AppRoutingModule
-  ],
-  declarations: [
-    AppComponent,
-    DashboardComponent,
-    HeroDetailComponent,
-    HeroesComponent,
-    HeroSearchComponent
-  ],
-  providers: [ HeroService ],
-  bootstrap: [ AppComponent ]
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        InMemoryWebApiModule.forRoot(InMemoryDataService),
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MdIconModule,
+        MdDialogModule,
+        MdButtonModule
+    ],
+    declarations: [
+        AppComponent,
+        DashboardComponent,
+        HeroDetailComponent,
+        HeroesComponent,
+        HeroSearchComponent,
+        DialogInstruction
+    ],
+    providers: [HeroService],
+    bootstrap: [AppComponent],
+    entryComponents: [DialogInstruction]
 })
-export class AppModule { }
+export class AppModule {
+}
