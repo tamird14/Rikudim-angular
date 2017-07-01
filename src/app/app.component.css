@@ -1,7 +1,10 @@
-div{
+.header {
     text-align: center;
 }
 
+.data {
+    direction: rtl;
+}
 h1 {
     font-size: 1.2em;
     color: #999;

@@ -1,0 +1,40 @@
+<form>
+    <table cellspacing="10">
+        <tr>
+            <td>
+                <md-input-container>
+                    <input mdInput placeholder="שם הריקוד" [(ngModel)]="dance" name="dance">
+                </md-input-container>
+            </td>
+            <td>
+                <md-input-container>
+                    <input mdInput placeholder="יוצר" [(ngModel)]="creator" name="creator">
+                </md-input-container>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <md-radio-group [(ngModel)]="danceType" name="type">
+                    <md-radio-button value="">הכל</md-radio-button>
+                    <md-radio-button value="circle">מעגל</md-radio-button>
+                    <md-radio-button value="partners">זוגות</md-radio-button>
+                    <md-radio-button value="lines">שורות</md-radio-button>
+                </md-radio-group>
+            </td>
+            <td>
+                <md-select placeholder="שנה" [(ngModel)]="danceYear" name="year">
+                    <md-option><em></em></md-option>
+                    <md-option *ngFor="let y of years" value="{{y}}">
+                        {{y}}
+                    </md-option>
+                </md-select>
+            </td>
+            <td>
+                <button md-raised-button (click)="searchSongs(dance, creator, danceType, danceYear)">חפש
+                    <md-icon>search</md-icon>
+                </button>
+            </td>
+        </tr>
+    </table>
+    {{dance}},{{creator}},{{danceType}},{{danceYear}}
+</form>
