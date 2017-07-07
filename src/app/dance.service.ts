@@ -1,5 +1,5 @@
 import {Injectable}     from '@angular/core';
-import {Http}           from '@angular/http';
+import {Http, Response}           from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -17,11 +17,14 @@ export class DanceService {
         /*let urlParam = '?id=0' + (name !== '' ? '&name=' + name : '') +
             (creator !== '' ? '&creator=' + creator : '') + (type !== '' ? '&type=' + type : '') +
             (year !== '' ? '&year=' + year : '');*/
-        let url2 = 'http://localhost:3000/app/src/songs.json';
+        let url2 = 'http://localhost:3000/songs.json';
         return this.http.get(url2)
             .toPromise()
-            .then(response => response.json().data as Dance[])
+            .then(response => this.foo2(response))
             .catch(this.handleError);
+    }
+    foo2(response: Response): Dance[] {
+        return response.json().data as Dance[];
     }
 
     private handleError(error: any): Promise<any> {

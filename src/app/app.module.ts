@@ -11,10 +11,6 @@ import {
 
 import {AppRoutingModule}               from './app-routing.module';
 
-// Imports for loading & configuring the in-memory web api
-import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
-import {InMemoryDataService}  from './in-memory-data.service';
-
 import {AppComponent}           from './app.component';
 import {DialogInstruction}      from './dialog-instruction.component';
 import {SearchColComponent}     from './search_col.component';
@@ -31,7 +27,6 @@ import {HeroSearchComponent}    from './hero-search.component';
         BrowserModule,
         FormsModule,
         HttpModule,
-        InMemoryWebApiModule.forRoot(InMemoryDataService),
         AppRoutingModule,
         BrowserAnimationsModule,
         MdIconModule,

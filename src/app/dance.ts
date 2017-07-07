@@ -1,7 +1,7 @@
 export class Dance {
+    dCreator: string;
     dId: number;
     dName: string;
-    dCreator: string;
     dType: string;
     dYear: number;
 }

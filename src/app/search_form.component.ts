@@ -20,6 +20,9 @@ export class SearchFormComponent {
     searchSongs(name: string, creator: string, type: string, year: string) {
         this.danceService
             .getDances(name, creator, type, year)
-            .then(dances => this.results = dances);
+            .then(dances => this.foo(dances));
+    }
+    foo(res: Dance[]) {
+        this.results = res;
     }
 }
