@@ -1,7 +1,4 @@
 export class Dance {
-    dCreator: string;
-    dId: number;
-    dName: string;
-    dType: string;
-    dYear: number;
+    constructor(public creator: string, public id: string, public name: string, public type: string, public year: string) {
+    }
 }

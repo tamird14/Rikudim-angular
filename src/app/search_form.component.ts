@@ -1,6 +1,6 @@
 import {Component}          from '@angular/core';
-import {DanceService} from './dance.service';
-import {Dance} from './dance';
+import {DanceService}   from './dance.service';
+import {Dance}          from './dance';
 
 @Component({
     selector: 'search-form',
@@ -20,9 +20,11 @@ export class SearchFormComponent {
     searchSongs(name: string, creator: string, type: string, year: string) {
         this.danceService
             .getDances(name, creator, type, year)
-            .then(dances => this.foo(dances));
+            .then(dances => this.foo2(dances));
     }
-    foo(res: Dance[]) {
-        this.results = res;
+
+    foo2(da: Array<Dance>): void {
+        da.forEach(dance =>
+            this.results.push(new Dance(dance.creator, dance.id, dance.name, dance.type, dance.year)));
     }
 }
