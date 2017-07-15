@@ -8,15 +8,15 @@ import {Dance} from './dance';
 @Injectable()
 export class DanceService {
 
-    /*private url = 'rikudam.info/search2.php';  // URL to web api*/
+    // private url = 'rikudam.info/search2.php';  // URL to web api
 
     constructor(private http: Http) {
     }
 
     getDances(name: string, creator: string, type: string, year: string): Promise<Array<Dance>> {
-        /*let urlParam = '?id=0' + (name !== '' ? '&name=' + name : '') +
-         (creator !== '' ? '&creator=' + creator : '') + (type !== '' ? '&type=' + type : '') +
-         (year !== '' ? '&year=' + year : '');*/
+        // let urlParam = '?id=0' + (name !== '' ? '&name=' + name : '') +
+        //    (creator !== '' ? '&creator=' + creator : '') + (type !== '' ? '&type=' + type : '') +
+        //    (year !== '' ? '&year=' + year : '');
         let url2 = 'http://localhost:3000/songs.json';
         return this.http.get(url2)
             .toPromise()

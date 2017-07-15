@@ -37,5 +37,73 @@
         </tr>
     </table>
     {{dance}},{{creator}},{{danceType}},{{danceYear}}
-    <div *ngFor="let song of results">{{song.name}}</div>
+    <!--<div *ngFor="let song of results">{{song.name}}</div>-->
+    <div class="example-container mat-elevation-z8">
+        <!--<table cellspacing="10">
+            <tr>
+                <th></th>
+                <th>שם</th>
+                <th>יוצר</th>
+                <th>סוג</th>
+                <th>שנה</th>
+            </tr>
+            <ng-container *ngFor="let dance of results; trackBy: trackByIndex">
+                <tr>
+                    <td>
+                        <md-checkbox></md-checkbox>
+                    </td>
+                    <td>{{dance.name}}</td>
+                    <td>{{dance.creator}}</td>
+                    <td>{{dance.type}}</td>
+                    <td>{{dance.year}}</td>
+                </tr>
+            </ng-container>
+        </table>-->
+        <md-table #table [dataSource]="dataSource">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+            <!-- checkBox Column -->
+            <ng-container cdkColumnDef="checkBox">
+                <md-header-cell *cdkHeaderCellDef></md-header-cell>
+                <md-cell *cdkCellDef="">
+                    <md-checkbox></md-checkbox>
+                </md-cell>
+            </ng-container>
+
+            <!-- name Column -->
+            <ng-container cdkColumnDef="dName">
+                <md-header-cell *cdkHeaderCellDef> שם </md-header-cell>
+                <md-cell *cdkCellDef="let song"> {{song.name}} </md-cell>
+            </ng-container>
+
+            <!-- creator Column -->
+            <ng-container cdkColumnDef="dCreator">
+                <md-header-cell *cdkHeaderCellDef> יוצר </md-header-cell>
+                <md-cell *cdkCellDef="let song"> {{song.creator}}% </md-cell>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container cdkColumnDef="dType">
+                <md-header-cell *cdkHeaderCellDef> סוג </md-header-cell>
+                <md-cell *cdkCellDef="let song"> {{song.type}} </md-cell>
+            </ng-container>
+
+            <!-- Color Column -->
+            <ng-container cdkColumnDef="dYear">
+                <md-header-cell *cdkHeaderCellDef>שנה</md-header-cell>
+                <md-cell *cdkCellDef="let song"> {{song.year}} </md-cell>
+            </ng-container>
+
+            <md-header-row *cdkHeaderRowDef="['checkBox','dName','dCreator','dType','dYear']"></md-header-row>
+            <md-row *cdkRowDef="let song; columns: ['checkBox','dName','dCreator','dType','dYear'];"></md-row>
+
+        </md-table>
+        <md-paginator #paginator
+                          [length]="exampleDatabase.data.length"
+                          [pageIndex]="0"
+                          [pageSize]="25"
+                          [pageSizeOptions]="[5, 10, 25, 100]">
+        </md-paginator>
+    </div>
 </form>

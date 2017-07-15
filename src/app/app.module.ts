@@ -1,12 +1,15 @@
-import {NgModule}                       from '@angular/core';
-import {BrowserModule}                  from '@angular/platform-browser';
-import {FormsModule}                    from '@angular/forms';
-import {HttpModule}                     from '@angular/http';
-import {BrowserAnimationsModule}        from '@angular/platform-browser/animations';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule}   from '@angular/core';
+import {BrowserModule}                      from '@angular/platform-browser';
+import {FormsModule}                        from '@angular/forms';
+import {HttpModule}                         from '@angular/http';
+import {BrowserAnimationsModule}            from '@angular/platform-browser/animations';
+import {CdkTableModule}                     from '@angular/cdk';
 
 import {
     MdIconModule, MdDialogModule, MdButtonModule,
-    MdGridListModule, MdInputModule, MdRadioModule, MdSelectModule
+    MdGridListModule, MdInputModule, MdRadioModule,
+    MdSelectModule, MdTableModule, MdCheckboxModule,
+    MdPaginatorModule
 }         from '@angular/material';
 
 import {AppRoutingModule}               from './app-routing.module';
@@ -35,7 +38,11 @@ import {HeroSearchComponent}    from './hero-search.component';
         MdGridListModule,
         MdInputModule,
         MdRadioModule,
-        MdSelectModule
+        MdSelectModule,
+        CdkTableModule,
+        MdTableModule,
+        MdCheckboxModule,
+        MdPaginatorModule,
     ],
     declarations: [
         AppComponent,
@@ -49,7 +56,8 @@ import {HeroSearchComponent}    from './hero-search.component';
     ],
     providers: [DanceService],
     bootstrap: [AppComponent],
-    entryComponents: [DialogInstruction]
+    entryComponents: [DialogInstruction],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {
 }
